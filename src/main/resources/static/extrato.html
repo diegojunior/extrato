@@ -1,3 +1,24 @@
-<div class="col-sm-12 col-md-12 col-lg-12">
-	{{mensagem}}
+<div class="col-sm-12 col-md-12 col-lg-12 table-responsive">
+	<table class="table table-hover">
+  		<thead>
+  			<th>Data do Lançamento</th>
+  			<th>Descrição</th>
+  			<th>Número</th>
+  			<th>Situação</th>
+  			<th>Data Confirmação</th>
+  			<th>Dados Bancários</th>
+  			<th>Valor Final</th>
+  		</thead>
+  		<tbody class=".table-hover">
+  			<tr ng-repeat="lancamento in extrato.lancamentos track by $index">
+  				<td>{{lancamento.dataLancamentoContaCorrenteCliente}}</td>
+  				<td>{{lancamento.descricaoGrupoPagamento}}</td>
+  				<td>{{lancamento.numeroEvento}}</td>
+  				<td>{{lancamento.lancamentoContaCorrenteCliente.nomeSituacaoRemessa}}</td>
+  				<td>{{lancamento.dataEfetivaLancamento}}</td>
+  				<td>{{lancamento.lancamentoContaCorrenteCliente.nomeBanco}} Ag {{lancamento.lancamentoContaCorrenteCliente.dadosDomicilioBancario.codigoAgencia}} CC {{lancamento.lancamentoContaCorrenteCliente.dadosDomicilioBancario.contaCorrente}}</td>
+  				<td>Valor Final</td>
+  			</tr>
+  		</tbody>
+	</table>
 </div>
