@@ -15,7 +15,7 @@ import br.com.cielo.resource.json.ControleLancamentoJson;
 import br.com.cielo.resource.json.ExtratoJson;
 import br.com.cielo.service.ExtratoService;
 
-@RequestMapping("/v1/extratos")
+@RequestMapping("/extrato/v1")
 @RestController
 public class ExtratoResource {
 
