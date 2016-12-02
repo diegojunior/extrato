@@ -1,15 +1,16 @@
 package br.com.cielo.model;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import com.google.common.collect.Lists;
 
+import lombok.Getter;
+@Getter
 public class Extrato implements Model {
 
-	private List<ControleLancamento> controleLancamentos;
+	private final List<ControleLancamento> controleLancamentos;
 	
-	private TotalLancamento total;
+	private TotalizadorLancamentos totalLancamentos;
 	
 	private Extrato() {
 		this.controleLancamentos = Lists.newArrayList();
@@ -19,51 +20,17 @@ public class Extrato implements Model {
 		return new Extrato();
 	}
 	
-	public Extrato incluirControle(final ControleLancamento controleLancamento) {
+	public Extrato lancar(final ControleLancamento controleLancamento) {
 		this.controleLancamentos.add(controleLancamento);
+		this.totalizarLancamentos(controleLancamento);
 		return this;
 	}
 	
-	public TotalLancamento totalizar() {
-		if (this.total == null) {
-			this.total = new TotalLancamento();
+	private void totalizarLancamentos(final ControleLancamento lancamento) {
+		if (this.totalLancamentos == null) {
+			this.totalLancamentos = new TotalizadorLancamentos();
 		}
-		return total;
+		this.totalLancamentos.totalizarLancamentos(lancamento);
 	}
 	
-	public class TotalLancamento {
-		
-		private int quantidadeLancamentoRemessa;
-		
-		private BigDecimal valorLancamentos;
-		
-		public TotalLancamento() {
-			lancamentos();
-		}
-
-		private void lancamentos() {
-			for (ControleLancamento controle : controleLancamentos) {
-				this.quantidadeLancamentoRemessa += controle.getQuantidadeLancamentoRemessa();
-				if (this.valorLancamentos != null) {
-					this.valorLancamentos = valorLancamentos.add(controle.getValorLancamentoRemessa());
-				} else {
-					this.valorLancamentos = controle.getValorLancamentoRemessa();
-				}
-			}
-		}
-
-		public int getQuantidadeLancamentoRemessa() {
-			return quantidadeLancamentoRemessa;
-		}
-
-		public BigDecimal getValorLancamentos() {
-			return valorLancamentos;
-		}
-		
-	}
-
-	public List<ControleLancamento> getControleLancamentos() {
-		return controleLancamentos;
-	}
-
 }

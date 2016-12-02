@@ -4,19 +4,19 @@ import br.com.cielo.model.Lancamento;
 
 public class LancamentoJson implements Json {
 
-	private String numeroRemessaBanco;
+	private final String numeroRemessaBanco;
 	
-	private String nomeSituacaoRemessa;
+	private final String nomeSituacaoRemessa;
 	
-	private String nomeTipoOperacao;
+	private final String nomeTipoOperacao;
 	
-	private DadosBancoJson dadosDomicilioBancario;
+	private final DadosBancoJson dadosDomicilioBancario;
 	
 	public LancamentoJson(final Lancamento lancamento) {
-		this.numeroRemessaBanco = lancamento.getNumeroRemessaBanco();
-		this.nomeSituacaoRemessa = lancamento.getSituacao().getLabel();
-		this.nomeTipoOperacao = lancamento.getTipoOperacao().getLabel();
-		this.dadosDomicilioBancario = new DadosBancoJson(lancamento.getDados());
+		numeroRemessaBanco = lancamento.getNumeroRemessaBanco();
+		nomeSituacaoRemessa = lancamento.getSituacao().getLabel();
+		nomeTipoOperacao = lancamento.getTipoOperacao().getLabel();
+		dadosDomicilioBancario = new DadosBancoJson(lancamento.getDados());
 	}
 
 	public String getNumeroRemessaBanco() {
@@ -34,6 +34,5 @@ public class LancamentoJson implements Json {
 	public DadosBancoJson getDadosDomicilioBancario() {
 		return dadosDomicilioBancario;
 	}
-	
 	
 }

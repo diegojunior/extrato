@@ -5,8 +5,6 @@ import br.com.cielo.resource.json.Json;
 
 public interface Conversor<M extends Model, J extends Json> {
 
-	public M converterFrom(J json);
-	
 	public J converterFrom(M model);
 	
 }

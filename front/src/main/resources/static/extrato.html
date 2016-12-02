@@ -10,14 +10,14 @@
   			<th>Valor Final</th>
   		</thead>
   		<tbody class=".table-hover">
-  			<tr ng-repeat="lancamento in extrato.lancamentos track by $index">
+  			<tr ng-repeat="lancamento in extrato.listaControleLancamento track by $index">
   				<td>{{lancamento.dataLancamentoContaCorrenteCliente}}</td>
   				<td>{{lancamento.descricaoGrupoPagamento}}</td>
   				<td>{{lancamento.numeroEvento}}</td>
   				<td>{{lancamento.lancamentoContaCorrenteCliente.nomeSituacaoRemessa}}</td>
   				<td>{{lancamento.dataEfetivaLancamento}}</td>
-  				<td>{{lancamento.lancamentoContaCorrenteCliente.nomeBanco}} Ag {{lancamento.lancamentoContaCorrenteCliente.dadosDomicilioBancario.codigoAgencia}} CC {{lancamento.lancamentoContaCorrenteCliente.dadosDomicilioBancario.contaCorrente}}</td>
-  				<td>Valor Final</td>
+  				<td>{{lancamento.dadosBancarios}}</td>
+  				<td>{{lancamento.valorLancamentoRemessa | currency:"R$":2}}</td>
   			</tr>
   		</tbody>
 	</table>

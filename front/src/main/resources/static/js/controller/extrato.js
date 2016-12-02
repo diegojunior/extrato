@@ -1,13 +1,13 @@
 extratoApp.controller('ExtratoCTRL', ['$scope', 'extratoService', function($scope, extratoService) {
 	
-	$scope.extrato = {lancamentos: []};
+	$scope.extrato = {listaControleLancamento: []};
 		
 	$scope.lancamentos = function(indice, tamanhoPagina, totalElementos) {
 		extratoService
 			.extrato(indice, tamanhoPagina, totalElementos)
-				.query({}, function(lancamentos) {
+				.get({}, function(extrato) {
 				
-					$scope.extrato.lancamentos = lancamentos;
+					$scope.extrato = extrato;
 				
 				}, function(erros){
 				

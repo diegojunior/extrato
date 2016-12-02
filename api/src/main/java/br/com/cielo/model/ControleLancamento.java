@@ -5,33 +5,35 @@ import java.util.Date;
 
 public class ControleLancamento implements Model {
 
-	private Date dataEfetivaLancamento;
+	private final Date dataEfetivaLancamento;
 	
-	private Date dataLancamentoContaCorrente;
+	private final Date dataLancamentoContaCorrente;
 	
-	private String numeroEvento;
+	private final String numeroEvento;
 	
-	private String descricaoGrupoPagamento;
+	private final String descricaoGrupoPagamento;
 	
-	private String codigoIdentificadorUnico;
+	private final String codigoIdentificadorUnico;
 	
-	private String nomeBanco;
+	private final String nomeBanco;
 	
-	private int quantidadeLancamentoRemessa;
+	private final int quantidadeLancamentoRemessa;
 	
-	private int numeroRaizCnpj;
+	private final int numeroRaizCnpj;
 	
-	private int numeroSufixoCnpj;
+	private final int numeroSufixoCnpj;
 	
-	private BigDecimal valorLancamentoRemessa;
+	private final BigDecimal valorLancamentoRemessa;
 	
-	private Lancamento lancamento;
+	private final Lancamento lancamento;
 	
-	private ControleLancamento(Date dataEfevaLancamento, Date dataLancamentoContaCorrente, String numeroEvento,
-			String descricaoGrupoPagamento, String codigoIdentificadorUnico, String nomeBanco,
-			int quantidadeLancamentoRemessa, int numeroRaizCnpj, int numeroSufixoCnpj,
-			BigDecimal valorLancamentoRemessa, Lancamento lancamento) {
-		this.dataEfetivaLancamento = dataEfevaLancamento;
+	private ControleLancamento(final Date dataEfetivaLancamento, final Date dataLancamentoContaCorrente, 
+			final String numeroEvento, final String descricaoGrupoPagamento, 
+			final String codigoIdentificadorUnico, final String nomeBanco,
+			final int quantidadeLancamentoRemessa, final int numeroRaizCnpj, 
+			final int numeroSufixoCnpj, final BigDecimal valorLancamentoRemessa, 
+			final Lancamento lancamento) {
+		this.dataEfetivaLancamento = dataEfetivaLancamento;
 		this.dataLancamentoContaCorrente = dataLancamentoContaCorrente;
 		this.numeroEvento = numeroEvento;
 		this.descricaoGrupoPagamento = descricaoGrupoPagamento;
@@ -44,10 +46,12 @@ public class ControleLancamento implements Model {
 		this.lancamento = lancamento;
 	}
 	
-	public static ControleLancamento build(Date dataEfetivaLancamento, Date dataLancamentoContaCorrente, String numeroEvento,
-			String descricaoGrupoPagamento, String codigoIdentificadorUnico, String nomeBanco,
-			int quantidadeLancamentoRemessa, int numeroRaizCnpj, int numeroSufixoCnpj,
-			BigDecimal valorLancamentoRemessa, Lancamento lancamento) {
+	public static ControleLancamento build(final Date dataEfetivaLancamento, 
+			final Date dataLancamentoContaCorrente, final String numeroEvento, 
+			final String descricaoGrupoPagamento, final String codigoIdentificadorUnico, 
+			final String nomeBanco, final int quantidadeLancamentoRemessa, 
+			final int numeroRaizCnpj, final int numeroSufixoCnpj,
+			final BigDecimal valorLancamentoRemessa, final Lancamento lancamento) {
 		
 		return new ControleLancamento(dataEfetivaLancamento, dataLancamentoContaCorrente, 
 				numeroEvento, descricaoGrupoPagamento, 

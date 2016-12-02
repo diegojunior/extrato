@@ -2,16 +2,16 @@ package br.com.cielo.model;
 
 public class Lancamento implements Model {
 
-	private String numeroRemessaBanco;
+	private final String numeroRemessaBanco;
 	
-	private SituacaoRemessaEnum situacao;
+	private final SituacaoRemessaEnum situacao;
 	
-	private TipoOperacaoEnum tipoOperacao;
+	private final TipoOperacaoEnum tipoOperacao;
 	
-	private DadosBanco dados;
+	private final DadosBanco dados;
 	
-	private Lancamento(String numeroRemessaBanco, SituacaoRemessaEnum situacao, TipoOperacaoEnum tipoOperacao,
-			DadosBanco dados) {
+	private Lancamento(final String numeroRemessaBanco, final SituacaoRemessaEnum situacao,
+			final TipoOperacaoEnum tipoOperacao, final DadosBanco dados) {
 		super();
 		this.numeroRemessaBanco = numeroRemessaBanco;
 		this.situacao = situacao;
@@ -19,8 +19,8 @@ public class Lancamento implements Model {
 		this.dados = dados;
 	}
 
-	public static Lancamento build(String numeroRemessaBanco, SituacaoRemessaEnum situacao, TipoOperacaoEnum tipoOperacao,
-			DadosBanco dados) {
+	public static Lancamento build(final String numeroRemessaBanco, final SituacaoRemessaEnum situacao, 
+			final TipoOperacaoEnum tipoOperacao, final DadosBanco dados) {
 		return new Lancamento(numeroRemessaBanco, situacao, tipoOperacao, dados);
 	}
 

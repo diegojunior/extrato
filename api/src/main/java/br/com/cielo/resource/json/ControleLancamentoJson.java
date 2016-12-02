@@ -8,40 +8,40 @@ import br.com.cielo.model.ControleLancamento;
 
 public class ControleLancamentoJson implements Json {
 
-	private String dataEfetivaLancamento;
+	private final String dataEfetivaLancamento;
 	
-	private String dataLancamentoContaCorrenteCliente;
+	private final String dataLancamentoContaCorrenteCliente;
 	
-	private String numeroEvento;
+	private final String numeroEvento;
 	
-	private String descricaoGrupoPagamento;
+	private final String descricaoGrupoPagamento;
 	
-	private String codigoIdentificadorUnico;
+	private final String codigoIdentificadorUnico;
 	
-	private String nomeBanco;
+	private final String nomeBanco;
 	
-	private int quantidadeLancamentoRemessa;
+	private final int quantidadeLancamentoRemessa;
 	
-	private int numeroRaizCNPJ;
+	private final int numeroRaizCNPJ;
 	
-	private int numeroSufixoCNPJ;
+	private final int numeroSufixoCNPJ;
 	
-	private String valorLancamentoRemessa;
+	private final String valorLancamentoRemessa;
 	
-	private LancamentoJson lancamentoContaCorrenteCliente;
+	private final LancamentoJson lancamentoContaCorrenteCliente;
 	
 	public ControleLancamentoJson(final ControleLancamento controle) {
-		this.dataEfetivaLancamento = formatarData(controle.getDataEfetivaLancamento());
-		this.dataLancamentoContaCorrenteCliente = formatarData(controle.getDataLancamentoContaCorrente());
-		this.numeroEvento = controle.getNumeroEvento();
-		this.descricaoGrupoPagamento = controle.getDescricaoGrupoPagamento();
-		this.codigoIdentificadorUnico = controle.getCodigoIdentificadorUnico();
-		this.nomeBanco = controle.getNomeBanco();
-		this.quantidadeLancamentoRemessa = controle.getQuantidadeLancamentoRemessa();
-		this.numeroRaizCNPJ = controle.getNumeroRaizCnpj();
-		this.numeroSufixoCNPJ = controle.getNumeroSufixoCnpj();
-		this.valorLancamentoRemessa = controle.getValorLancamentoRemessa().toString();
-		this.lancamentoContaCorrenteCliente = new LancamentoJson(controle.getLancamento());
+		dataEfetivaLancamento = formatarData(controle.getDataEfetivaLancamento());
+		dataLancamentoContaCorrenteCliente = formatarData(controle.getDataLancamentoContaCorrente());
+		numeroEvento = controle.getNumeroEvento();
+		descricaoGrupoPagamento = controle.getDescricaoGrupoPagamento();
+		codigoIdentificadorUnico = controle.getCodigoIdentificadorUnico();
+		nomeBanco = controle.getNomeBanco();
+		quantidadeLancamentoRemessa = controle.getQuantidadeLancamentoRemessa();
+		numeroRaizCNPJ = controle.getNumeroRaizCnpj();
+		numeroSufixoCNPJ = controle.getNumeroSufixoCnpj();
+		valorLancamentoRemessa = controle.getValorLancamentoRemessa().toString();
+		lancamentoContaCorrenteCliente = new LancamentoJson(controle.getLancamento());
 	}
 
 	public String getDataEfetivaLancamento() {
@@ -88,9 +88,20 @@ public class ControleLancamentoJson implements Json {
 		return lancamentoContaCorrenteCliente;
 	}
 	
-	private String formatarData(Date data) {
+	private String formatarData(final Date data) {
 		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 		return df.format(data);
+	}
+	
+	public String getDadosBancarios() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(getNomeBanco())
+			.append(" Ag ")
+			.append(getLancamentoContaCorrenteCliente().getDadosDomicilioBancario().getCodigoAgencia())
+			.append(" CC ")
+			.append(getLancamentoContaCorrenteCliente().getDadosDomicilioBancario().getContaCorrente());
+		
+		return sb.toString();
 	}
 	
 }

@@ -8,12 +8,7 @@ import br.com.cielo.resource.json.ExtratoJson;
 public class ExtratoConversor implements Conversor<Extrato, ExtratoJson> {
 
 	@Override
-	public Extrato converterFrom(ExtratoJson json) {
-		return null;
-	}
-
-	@Override
-	public ExtratoJson converterFrom(Extrato model) {
+	public ExtratoJson converterFrom(final Extrato model) {
 		return new ExtratoJson(model);
 	}
 }
