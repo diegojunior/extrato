@@ -27,7 +27,7 @@ O projeto foi desenvolvido utilizando o pacote de serviços de bootstrap do Spri
     
 #Executando aplicação#
   
-Na raiz do projeto (extrato), deve-se executar o seguinte commando para efetuar o build da aplicação.
+Na raiz do projeto (extrato), deve-se executar o seguinte comando para efetuar o build da aplicação.
 
 ```
 mvn clean install
