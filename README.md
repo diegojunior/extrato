@@ -15,6 +15,7 @@ O projeto foi desenvolvido utilizando o pacote de serviços de bootstrap do Spri
   
 ##Pré requisitos##
   - Java 1.8
+  - Maven
     
 ##Ferramentas utilizadas##
   - Java 1.8
