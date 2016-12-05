@@ -8,7 +8,7 @@ import br.com.cielo.model.ControleLancamento;
 import br.com.cielo.model.Extrato;
 import lombok.Getter;
 @Getter
-public class ExtratoJson implements Json{
+public class ExtratoJson implements Json {
 	
 	private final int quantidadeRemessas;
 	
